@@ -1,0 +1,21 @@
+export default function CTA() {
+  return (
+    <section className="max-w-5xl mx-auto px-6 py-32">
+      <div className="rounded-3xl border border-blue-500/20 bg-gradient-to-r from-blue-600/10 to-zinc-900 p-14 text-center">
+
+        <h2 className="text-5xl font-bold text-white">
+          Ready to find your next squad?
+        </h2>
+
+        <p className="mt-6 text-xl text-zinc-400">
+          Join thousands of gamers already using PartyFind.
+        </p>
+
+        <button className="mt-10 rounded-xl bg-blue-600 px-8 py-4 font-semibold text-white transition hover:scale-105 hover:bg-blue-500">
+          Get Started
+        </button>
+
+      </div>
+    </section>
+  );
+}
