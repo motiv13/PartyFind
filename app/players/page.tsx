@@ -8,6 +8,8 @@ import PlayersGrid from "@/components/players/PlayersGrid";
 
 export default function PlayersPage() {
   const [search, setSearch] = useState("");
+  const [selectedGame, setSelectedGame] = useState("All");
+  const [onlineOnly, setOnlineOnly] = useState(false);
 
   return (
     <main className="min-h-screen bg-zinc-950 text-white">
@@ -28,9 +30,18 @@ export default function PlayersPage() {
             setSearch={setSearch}
           />
 
-          <Filters />
+          <Filters
+  selectedGame={selectedGame}
+  setSelectedGame={setSelectedGame}
+  onlineOnly={onlineOnly}
+  setOnlineOnly={setOnlineOnly}
+/>
 
-          <PlayersGrid search={search} />
+         <PlayersGrid
+  search={search}
+  selectedGame={selectedGame}
+  onlineOnly={onlineOnly}
+/>
         </div>
       </section>
     </main>
