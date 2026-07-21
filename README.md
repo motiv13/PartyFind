@@ -1,36 +1,54 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🎮 PartyFind
 
-## Getting Started
+PartyFind is a social platform for gamers to find teammates, friends and communities across different multiplayer games.
 
-First, run the development server:
+## ✨ Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- 👤 Player Profiles
+- 🔍 Search Players
+- 🎮 Multi-game Support
+- 💬 Private Chat *(coming soon)*
+- 👥 Friends System *(coming soon)*
+- 🎯 Party Invitations *(coming soon)*
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Tech Stack
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Next.js 16
+- React
+- TypeScript
+- TailwindCSS
 
-## Learn More
+Future:
 
-To learn more about Next.js, take a look at the following resources:
+- Prisma
+- PostgreSQL
+- NextAuth
+- Socket.io
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Project Status
 
-## Deploy on Vercel
+🟢 Active Development
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Current Version:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+v0.1.0
+
+---
+
+## Roadmap
+
+See
+
+ROADMAP.md
+
+---
+
+## Documentation
+
+Located in
+
+/docs
