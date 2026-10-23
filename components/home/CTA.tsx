@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useLanguage } from "@/lib/i18n";
 
 export default function CTA() {
@@ -16,9 +17,9 @@ export default function CTA() {
           {t("Join thousands of gamers already using PartyFind.")}
         </p>
 
-        <button className="mt-10 rounded-xl bg-blue-600 px-8 py-4 font-semibold text-white transition hover:scale-105 hover:bg-blue-500">
+        <Link href="/register" className="mt-10 inline-flex rounded-xl bg-blue-600 px-8 py-4 font-semibold text-white transition hover:scale-105 hover:bg-blue-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950">
           {t("Get Started")}
-        </button>
+        </Link>
 
       </div>
     </section>

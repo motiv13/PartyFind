@@ -63,19 +63,20 @@ export default function InvitesPage() {
   const history = invites.filter((invite) => invite.status !== "pending");
 
   function renderCard(invite: PartyInvite, actions?: ReactNode) {
-    return <article key={invite.id} className="rounded-2xl border border-zinc-800 bg-zinc-900/70 p-5">
+    return <article key={invite.id} className="relative rounded-2xl border border-zinc-800 bg-zinc-900/70 p-5 transition hover:border-blue-500/40">
       <div className="flex flex-col gap-4 sm:flex-row sm:items-start">
-        <Link href={`/players/${invite.playerId}`} className="flex min-w-0 flex-1 items-center gap-4">
+        <div className="flex min-w-0 flex-1 items-center gap-4">
           <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-full border border-zinc-700 bg-zinc-800"><Image src={invite.avatar} alt="" fill unoptimized className="object-cover" /></div>
           <div className="min-w-0"><p className="truncate font-semibold text-white">{invite.playerName}</p><p className="mt-1 truncate text-sm text-zinc-400">{invite.role || t("PartyFind player")}</p></div>
-        </Link>
+        </div>
         <div className="flex items-center gap-2 self-start rounded-full border border-green-500/20 bg-green-500/10 px-3 py-1.5 text-sm font-medium text-green-300"><Gamepad2 size={15} />{invite.game}</div>
       </div>
       {invite.note && <p className="mt-4 whitespace-pre-wrap rounded-xl bg-zinc-950/70 p-4 text-sm leading-6 text-zinc-300">{invite.note}</p>}
       <div className="mt-4 flex flex-col gap-3 border-t border-zinc-800 pt-4 sm:flex-row sm:items-center sm:justify-between">
         <div className="flex items-center gap-2 text-xs text-zinc-500"><Clock3 size={14} />{invite.createdAt}{invite.status !== "pending" && <span className={`ml-2 rounded-full px-2 py-1 ${invite.status === "accepted" ? "bg-blue-500/10 text-blue-300" : "bg-zinc-800 text-zinc-400"}`}>{t(invite.status === "accepted" ? "Accepted" : "Declined")}</span>}</div>
-        {actions && <div className="flex flex-wrap gap-2">{actions}</div>}
+        {actions && <div className="relative z-20 flex flex-wrap gap-2">{actions}</div>}
       </div>
+      <Link href={`/players/${invite.playerId}`} aria-label={`${t("View Profile")}: ${invite.playerName}`} className="absolute inset-0 z-10 rounded-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400" />
     </article>;
   }
 

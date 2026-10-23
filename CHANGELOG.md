@@ -18,6 +18,8 @@
 
 ## Unreleased
 
+- Replaced homepage demo counters with live player, community, guild, online, and per-game profile counts from the local database.
+- Added group detail pages with member lists and owner controls for editing group information and guild recruitment.
 - Improved mobile layouts with compact account controls, a collapsible navigation menu, smaller player filters, and responsive profile cards.
 - Added guilds to the group directory with game, optional server or region, and recruiting status.
 - Added game-based communities with search, create, join, and leave actions.

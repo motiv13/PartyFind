@@ -64,8 +64,8 @@ export default function FriendsPage() {
 
   function renderCard(item: FriendRelationship, actions: ReactNode) {
     return (
-      <article key={item.requestId} className="flex flex-col gap-4 rounded-2xl border border-zinc-800 bg-zinc-900/70 p-5 sm:flex-row sm:items-center sm:justify-between">
-        <Link href={`/players/${item.playerId}`} className="flex min-w-0 items-center gap-4">
+      <article key={item.requestId} className="relative flex flex-col gap-4 rounded-2xl border border-zinc-800 bg-zinc-900/70 p-5 transition hover:border-blue-500/40 sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex min-w-0 items-center gap-4">
           <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-full border border-zinc-700 bg-zinc-800">
             {item.avatar && <Image src={item.avatar} alt="" fill unoptimized className="object-cover" />}
           </div>
@@ -73,8 +73,9 @@ export default function FriendsPage() {
             <p className="truncate font-semibold text-white">{item.name}</p>
             <p className="mt-1 truncate text-sm text-zinc-400">{[item.role, item.game, item.country].filter(Boolean).join(" · ") || "PartyFind player"}</p>
           </div>
-        </Link>
-        <div className="flex flex-wrap gap-2">{actions}</div>
+        </div>
+        <div className="relative z-20 flex flex-wrap gap-2">{actions}</div>
+        <Link href={`/players/${item.playerId}`} aria-label={`${t("View Profile")}: ${item.name}`} className="absolute inset-0 z-10 rounded-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400" />
       </article>
     );
   }

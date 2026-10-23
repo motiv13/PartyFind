@@ -23,7 +23,7 @@ export default function PlayerCard({
 }: PlayerCardProps) {
   const { t } = useLanguage();
   return (
-    <div className="group overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900 transition-all duration-300 hover:-translate-y-1 hover:border-blue-500/50 hover:shadow-2xl hover:shadow-blue-500/10">
+    <Link href={`/players/${player.id}`} aria-label={`${t("View Profile")}: ${player.name}`} className="group block overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900 transition-all duration-300 hover:-translate-y-1 hover:border-blue-500/50 hover:shadow-2xl hover:shadow-blue-500/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400">
 
       {/* Header */}
       <div className="flex items-center justify-between border-b border-zinc-800 px-5 py-3">
@@ -126,12 +126,10 @@ export default function PlayerCard({
 
       {/* Button */}
        <div className="px-6 pt-4 pb-6">
-      <Link
-  href={`/players/${player.id}`}
-  className="block w-full rounded-lg bg-blue-600 py-2.5 text-center text-sm font-medium text-white transition-all duration-300 hover:bg-blue-500 hover:scale-[1.02] hover:shadow-lg hover:shadow-blue-500/20 active:scale-[0.98]"
->
-  {t("View Profile")}</Link>
+         <span className="block w-full rounded-lg bg-blue-600 py-2.5 text-center text-sm font-medium text-white transition-all duration-300 group-hover:bg-blue-500 group-hover:shadow-lg group-hover:shadow-blue-500/20 group-active:scale-[0.98]">
+           {t("View Profile")}
+         </span>
        </div>
-    </div>
+    </Link>
   );
 }

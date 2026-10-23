@@ -11,6 +11,7 @@ import { players as samplePlayers } from "@/data/player";
 import type { Player } from "@/types/player";
 import { countries as countryOptions, languages as languageOptions, lookingForOptions } from "@/data/profile-options";
 import { useLanguage } from "@/lib/i18n";
+import { games } from "@/data/games";
 
 export default function PlayersPage() {
   const { t } = useLanguage();
@@ -22,6 +23,11 @@ export default function PlayersPage() {
   const [selectedTag, setSelectedTag] = useState("All");
   const [selectedLookingFor, setSelectedLookingFor] = useState("All");
   const [players, setPlayers] = useState<Player[]>(samplePlayers);
+
+  useEffect(() => {
+    const game = new URLSearchParams(window.location.search).get("game");
+    if (game && games.includes(game) && game !== "All") setSelectedGame(game);
+  }, []);
 
   useEffect(() => {
     let active = true;

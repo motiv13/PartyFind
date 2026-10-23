@@ -40,27 +40,6 @@ export default function Hero() {
           </button>
         </div>
 
-        <div className="mt-20 grid grid-cols-2 gap-10 md:grid-cols-4">
-          <div>
-            <h3 className="text-4xl font-bold text-blue-400">18K+</h3>
-            <p className="mt-2 text-zinc-400">{t("Players")}</p>
-          </div>
-
-          <div>
-            <h3 className="text-4xl font-bold text-blue-400">120+</h3>
-            <p className="mt-2 text-zinc-400">{t("Communities")}</p>
-          </div>
-
-          <div>
-            <h3 className="text-4xl font-bold text-blue-400">30+</h3>
-            <p className="mt-2 text-zinc-400">{t("Games")}</p>
-          </div>
-
-          <div>
-            <h3 className="text-4xl font-bold text-blue-400">24/7</h3>
-            <p className="mt-2 text-zinc-400">{t("Activity")}</p>
-          </div>
-        </div>
       </div>
     </section>
   );

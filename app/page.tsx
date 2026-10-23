@@ -13,9 +13,9 @@ export default function Home() {
     <main className="min-h-screen bg-zinc-950">
       <Navbar />
       <Hero />
+      <Stats />
       <PopularGames />
       <Features />
-      <Stats />
       <CTA />
       <Footer/>
     </main>
