@@ -1,4 +1,7 @@
+"use client";
+
 import { Target, Users, MessageCircle, Zap } from "lucide-react";
+import { useLanguage } from "@/lib/i18n";
 
 const features = [
   {
@@ -28,15 +31,16 @@ const features = [
 ];
 
 export default function Features() {
+  const { t } = useLanguage();
   return (
     <section className="max-w-7xl mx-auto px-6 py-32">
       <div className="text-center mb-16">
         <h2 className="text-4xl md:text-5xl font-bold text-white">
-          Why PartyFind?
+          {t("Why PartyFind?")}
         </h2>
 
         <p className="mt-4 text-lg text-zinc-400">
-          Everything you need to build your perfect gaming squad.
+          {t("Everything you need to build your perfect gaming squad.")}
         </p>
       </div>
 
@@ -59,11 +63,11 @@ export default function Features() {
               </div>
 
               <h3 className="text-2xl font-semibold text-white mb-3">
-                {feature.title}
+                {t(feature.title)}
               </h3>
 
               <p className="text-zinc-400 leading-7">
-                {feature.description}
+                {t(feature.description)}
               </p>
             </div>
           );

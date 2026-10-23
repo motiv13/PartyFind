@@ -1,5 +1,8 @@
+"use client";
+
 import type { Player } from "@/types/player";
 import { MessageSquareMore } from "lucide-react";
+import { useLanguage } from "@/lib/i18n";
 
 type ProfileContactProps = {
   player: Player;
@@ -8,6 +11,7 @@ type ProfileContactProps = {
 export default function ProfileContact({
   player,
 }: ProfileContactProps) {
+  const { t } = useLanguage();
   return (
     <section className="rounded-3xl border border-zinc-800 bg-zinc-900 p-8">
       <div className="mb-6 flex items-center gap-3">
@@ -19,7 +23,7 @@ export default function ProfileContact({
         </div>
 
         <h2 className="text-2xl font-bold text-white">
-          Contact
+          {t("Contact")}
         </h2>
       </div>
 

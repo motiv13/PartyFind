@@ -1,5 +1,8 @@
+"use client";
+
 import { User } from "lucide-react";
 import type { Player } from "@/types/player";
+import { useLanguage } from "@/lib/i18n";
 
 type ProfileAboutProps = {
   player: Player;
@@ -8,6 +11,7 @@ type ProfileAboutProps = {
 export default function ProfileAbout({
   player,
 }: ProfileAboutProps) {
+  const { t } = useLanguage();
   return (
     <section className="rounded-3xl border border-zinc-800 bg-zinc-900 p-8">
       <div className="mb-6 flex items-center gap-3">
@@ -19,7 +23,7 @@ export default function ProfileAbout({
         </div>
 
         <h2 className="text-2xl font-bold text-white">
-          About Me
+          {t("About Me")}
         </h2>
       </div>
 

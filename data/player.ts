@@ -32,6 +32,7 @@ export const players: Player[] = [
     "Heroic Raid",
     "PvE",
   ],
+  tags: ["PvE", "Mythic+", "Evenings"],
 },
 
 {
@@ -65,6 +66,7 @@ export const players: Player[] = [
     "Premier",
     "Voice Chat",
   ],
+  tags: ["Ranked", "Competitive", "Evenings"],
 },
 
 {
@@ -98,6 +100,7 @@ export const players: Player[] = [
     "Clash",
     "Duo",
   ],
+  tags: ["Duo", "Chill", "Clash"],
 },
 
 {
@@ -131,6 +134,7 @@ export const players: Player[] = [
     "Premier",
     "Competitive",
   ],
+  tags: ["Faceit", "Competitive", "Voice optional"],
 },
 
 {
@@ -163,6 +167,7 @@ export const players: Player[] = [
     "Battle Royale",
     "Voice Chat",
   ],
+  tags: ["Ranked", "Squad", "Voice chat"],
 },
 
 {
@@ -195,5 +200,6 @@ export const players: Player[] = [
     "PvE",
     "Weekly Activities",
   ],
+  tags: ["PvE", "Raids", "Casual"],
 },
 ];

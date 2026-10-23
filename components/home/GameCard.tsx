@@ -1,3 +1,7 @@
+"use client";
+
+import { useLanguage } from "@/lib/i18n";
+
 type GameCardProps = {
   emoji: string;
   name: string;
@@ -9,6 +13,7 @@ export default function GameCard({
   name,
   players,
 }: GameCardProps) {
+  const { t } = useLanguage();
   return (
     <div className="bg-zinc-900 hover:bg-zinc-800 transition rounded-2xl p-6 border border-zinc-800 cursor-pointer">
       <div className="text-5xl mb-4">{emoji}</div>
@@ -18,7 +23,7 @@ export default function GameCard({
       </h3>
 
       <p className="text-zinc-400 mt-2">
-        {players} players
+        {players} {t("players")}
       </p>
     </div>
   );

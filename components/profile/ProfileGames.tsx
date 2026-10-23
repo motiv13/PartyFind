@@ -1,5 +1,8 @@
+"use client";
+
 import type { Player } from "@/types/player";
 import { Gamepad2 } from "lucide-react";
+import { useLanguage } from "@/lib/i18n";
 
 type ProfileGamesProps = {
   player: Player;
@@ -8,6 +11,7 @@ type ProfileGamesProps = {
 export default function ProfileGames({
   player,
 }: ProfileGamesProps) {
+  const { t } = useLanguage();
   return (
     <section className="rounded-3xl border border-zinc-800 bg-zinc-900 p-8">
 
@@ -21,7 +25,7 @@ export default function ProfileGames({
         </div>
 
         <h2 className="text-2xl font-bold text-white">
-          Favorite Games
+          {t("Favorite Games")}
         </h2>
 
       </div>

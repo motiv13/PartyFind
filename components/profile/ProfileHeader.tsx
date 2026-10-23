@@ -1,10 +1,13 @@
+"use client";
+
 import Image from "next/image";
 import type { Player } from "@/types/player";
+import { useLanguage } from "@/lib/i18n";
 
 import {
   Globe,
   Mic,
-  Shield,
+  ListChecks,
   Circle,
 } from "lucide-react";
 
@@ -15,18 +18,19 @@ type ProfileHeaderProps = {
 export default function ProfileHeader({
   player,
 }: ProfileHeaderProps) {
+  const { t } = useLanguage();
   return (
     <section className="overflow-hidden rounded-3xl border border-zinc-800 bg-zinc-900">
 
       {/* Banner */}
-      <div className="h-56 bg-gradient-to-r from-blue-700 via-indigo-700 to-purple-700" />
+      <div className="h-40 bg-gradient-to-r from-blue-700 via-indigo-700 to-purple-700" />
 
       {/* Content */}
-      <div className="relative px-10 pb-10">
+      <div className="relative px-7 pb-7">
 
-        <div className="absolute -top-20">
+        <div className="absolute -top-16">
 
-          <div className="relative h-40 w-40 overflow-hidden rounded-full border-4 border-zinc-900 bg-gradient-to-br from-zinc-700 via-zinc-800 to-zinc-950 shadow-2xl ring-1 ring-white/10">
+          <div className="relative h-32 w-32 overflow-hidden rounded-full border-4 border-zinc-900 bg-gradient-to-br from-zinc-700 via-zinc-800 to-zinc-950 shadow-2xl ring-1 ring-white/10">
 
             <Image
               src={player.avatar}
@@ -40,11 +44,11 @@ export default function ProfileHeader({
 
         </div>
 
-        <div className="ml-48 pt-8">
+        <div className="ml-40 pt-5">
 
           <div className="flex items-center gap-3">
 
-            <h1 className="text-4xl font-bold text-white">
+            <h1 className="text-3xl font-bold text-white">
               {player.name}
             </h1>
 
@@ -61,27 +65,29 @@ export default function ProfileHeader({
           </div>
 
           <p className="mt-2 text-lg text-zinc-400">
-            {player.role} • {player.game}
+            {[player.role, player.game].filter(Boolean).join(" • ")}
           </p>
 
-          <div className="mt-6 flex flex-wrap gap-5 text-zinc-300">
+          <div className="mt-4 flex flex-wrap gap-4 text-sm text-zinc-300">
 
             <div className="flex items-center gap-2">
-              <Shield size={18} />
-              {player.ilvl ?? player.rank}
+              <ListChecks size={18} />
+              {player.ilvl ?? player.rank ?? t("Rank not set")}
             </div>
 
-            <div className="flex items-center gap-2">
-              <Globe size={18} />
-              {player.country}
-            </div>
+            {player.country && (
+              <div className="flex items-center gap-2">
+                <Globe size={18} />
+                {player.country}
+              </div>
+            )}
 
             <div className="flex items-center gap-2">
               <Mic size={18} />
 
               {player.voice
-                ? "Discord Available"
-                : "No Voice"}
+              ? t("Discord Available")
+                : t("No Voice")}
             </div>
 
           </div>

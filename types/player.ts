@@ -1,5 +1,5 @@
 export type Player = {
-  id: number;
+  id: number | string;
 
   name: string;
   avatar: string;
@@ -21,4 +21,5 @@ export type Player = {
   languages: string[];
   favoriteGames: string[];
   lookingFor: string[];
+  tags?: string[];
 };

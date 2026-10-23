@@ -1,9 +1,15 @@
+import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
+import AuthForm from "@/components/auth/AuthForm";
+
 export default function LoginPage() {
   return (
-    <main className="min-h-screen bg-zinc-950 text-white flex items-center justify-center">
-      <h1 className="text-5xl font-bold">
-        Login
-      </h1>
+    <main className="min-h-screen bg-zinc-950 text-white">
+      <Navbar />
+      <section className="flex min-h-[70vh] items-center justify-center px-6 py-14">
+        <AuthForm mode="login" />
+      </section>
+      <Footer />
     </main>
   );
 }

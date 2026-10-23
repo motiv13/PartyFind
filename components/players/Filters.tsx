@@ -1,4 +1,8 @@
+"use client";
+
 import { games } from "@/data/games";
+import FilterSelect from "@/components/players/FilterSelect";
+import { useLanguage } from "@/lib/i18n";
 
 type FiltersProps = {
   selectedGame: string;
@@ -6,6 +10,19 @@ type FiltersProps = {
 
   onlineOnly: boolean;
   setOnlineOnly: (value: boolean) => void;
+  selectedCountry: string;
+  setSelectedCountry: (country: string) => void;
+  selectedLanguage: string;
+  setSelectedLanguage: (language: string) => void;
+  selectedTag: string;
+  setSelectedTag: (tag: string) => void;
+  selectedLookingFor: string;
+  setSelectedLookingFor: (value: string) => void;
+  countries: string[];
+  languages: string[];
+  lookingFor: string[];
+  tags: string[];
+  onReset: () => void;
 };
 
 export default function Filters({
@@ -13,15 +30,29 @@ export default function Filters({
   setSelectedGame,
   onlineOnly,
   setOnlineOnly,
+  selectedCountry,
+  setSelectedCountry,
+  selectedLanguage,
+  setSelectedLanguage,
+  selectedTag,
+  setSelectedTag,
+  selectedLookingFor,
+  setSelectedLookingFor,
+  countries,
+  languages,
+  lookingFor,
+  tags,
+  onReset,
 }: FiltersProps) {
+  const { t } = useLanguage();
   return (
-    <div className="space-y-6">
-      <div className="flex flex-wrap gap-3">
+    <div className="space-y-4">
+      <div className="flex flex-wrap gap-2">
         {games.map((game) => (
           <button
             key={game}
             onClick={() => setSelectedGame(game)}
-            className={`rounded-xl border px-5 py-3 transition-all duration-200 ${
+            className={`rounded-lg border px-4 py-2.5 text-sm transition-all duration-200 ${
               selectedGame === game
                 ? "border-blue-500 bg-blue-600 text-white"
                 : "border-zinc-800 bg-zinc-900 text-zinc-400 hover:border-blue-500 hover:text-white"
@@ -32,9 +63,16 @@ export default function Filters({
         ))}
       </div>
 
+      <div className="flex flex-wrap items-end gap-4">
+        <FilterSelect label={t("Country")} value={selectedCountry} allLabel={t("All countries")} options={countries} onChange={setSelectedCountry} />
+        <FilterSelect label={t("Language")} value={selectedLanguage} allLabel={t("All languages")} options={languages} onChange={setSelectedLanguage} />
+        <FilterSelect label={t("Looking for")} value={selectedLookingFor} allLabel={t("Anything")} options={lookingFor} onChange={setSelectedLookingFor} />
+        <FilterSelect label={t("Tag")} value={selectedTag} allLabel={t("All tags")} options={tags} onChange={setSelectedTag} />
+
       <button
+        type="button"
         onClick={() => setOnlineOnly(!onlineOnly)}
-        className={`flex items-center gap-3 rounded-xl border px-5 py-3 transition-all ${
+        className={`flex items-center gap-2 rounded-lg border px-4 py-2.5 text-sm transition-all ${
           onlineOnly
             ? "border-green-500 bg-green-600 text-white"
             : "border-zinc-800 bg-zinc-900 text-zinc-400"
@@ -42,8 +80,14 @@ export default function Filters({
       >
         <span className="text-lg">🟢</span>
 
-        Online only
+        {t("Online only")}
       </button>
+        {(selectedGame !== "All" || selectedCountry !== "All" || selectedLanguage !== "All" || selectedLookingFor !== "All" || selectedTag !== "All" || onlineOnly) && (
+          <button type="button" onClick={onReset} className="px-2 py-3 text-sm text-zinc-400 transition hover:text-white">
+            {t("Clear filters")}
+          </button>
+        )}
+      </div>
     </div>
   );
 }

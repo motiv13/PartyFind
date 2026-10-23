@@ -1,3 +1,7 @@
+"use client";
+
+import { useLanguage } from "@/lib/i18n";
+
 const stats = [
   {
     value: "18K+",
@@ -18,6 +22,7 @@ const stats = [
 ];
 
 export default function Stats() {
+  const { t } = useLanguage();
   return (
     <section className="max-w-7xl mx-auto px-6 py-18">
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
@@ -31,7 +36,7 @@ export default function Stats() {
             </h3>
 
             <p className="mt-3 text-zinc-400">
-              {stat.label}
+              {t(stat.label)}
             </p>
           </div>
         ))}

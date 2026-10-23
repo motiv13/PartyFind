@@ -10,32 +10,32 @@
 
 # 🚧 Phase 2
 
-- [ ] Authentication
-- [ ] Registration
-- [ ] Profile Editing
-- [ ] Upload Avatar
+- [x] Authentication (email and password)
+- [x] Registration
+- [x] Profile Editing (account-backed local database)
+- [x] Upload Avatar
 
 ---
 
 # 🚧 Phase 3
 
-- [ ] Database
-- [ ] User Accounts
-- [ ] Sessions
+- [x] Database (local SQLite prototype)
+- [x] User Accounts
+- [x] Sessions
 
 ---
 
 # 🚧 Phase 4
 
-- [ ] Private Chat
-- [ ] Friends
-- [ ] Party Invites
+- [x] Friends and friend requests
+- [x] Private Chat (local SQLite, periodically refreshed)
+- [x] Party Invites
 
 ---
 
 # 🚧 Phase 5
 
-- [ ] Notifications
+- [x] Notifications
 - [ ] Communities
 - [ ] Guilds
 - [ ] Mobile Optimization
