@@ -13,7 +13,7 @@ export default function ProfileLookingFor({
 }: ProfileLookingForProps) {
   const { t } = useLanguage();
   return (
-    <section className="rounded-3xl border border-zinc-800 bg-zinc-900 p-8">
+    <section className="rounded-3xl border border-zinc-800 bg-zinc-900 p-5 sm:p-8">
       <div className="mb-6 flex items-center gap-3">
         <div className="rounded-xl bg-blue-600/20 p-3">
           <Search
@@ -22,7 +22,7 @@ export default function ProfileLookingFor({
           />
         </div>
 
-        <h2 className="text-2xl font-bold text-white">
+        <h2 className="text-xl font-bold text-white sm:text-2xl">
           {t("Looking For")}
         </h2>
       </div>

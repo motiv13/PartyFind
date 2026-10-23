@@ -21,6 +21,30 @@ database.pragma("journal_mode = WAL");
 database.pragma("foreign_keys = ON");
 
 database.exec(`
+  CREATE TABLE IF NOT EXISTS communities (
+    id TEXT PRIMARY KEY,
+    owner_id TEXT NOT NULL REFERENCES "user" (id) ON DELETE CASCADE,
+    kind TEXT NOT NULL DEFAULT 'community' CHECK (kind IN ('community', 'guild')),
+    name TEXT NOT NULL CHECK (length(name) BETWEEN 3 AND 60),
+    game TEXT NOT NULL,
+    region TEXT NOT NULL DEFAULT '',
+    description TEXT NOT NULL DEFAULT '' CHECK (length(description) <= 500),
+    recruiting INTEGER NOT NULL DEFAULT 1 CHECK (recruiting IN (0, 1)),
+    created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
+  );
+  CREATE INDEX IF NOT EXISTS communities_game_created
+    ON communities (game, created_at DESC);
+
+  CREATE TABLE IF NOT EXISTS community_members (
+    community_id TEXT NOT NULL REFERENCES communities (id) ON DELETE CASCADE,
+    user_id TEXT NOT NULL REFERENCES "user" (id) ON DELETE CASCADE,
+    role TEXT NOT NULL DEFAULT 'member' CHECK (role IN ('owner', 'member')),
+    joined_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (community_id, user_id)
+  );
+  CREATE INDEX IF NOT EXISTS community_members_user
+    ON community_members (user_id, joined_at DESC);
+
   CREATE TABLE IF NOT EXISTS notifications (
     id TEXT PRIMARY KEY,
     user_id TEXT NOT NULL REFERENCES "user" (id) ON DELETE CASCADE,
@@ -52,6 +76,17 @@ database.exec(`
     updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
   );
 `);
+
+const communityColumns = database.pragma("table_info(communities)") as { name: string }[];
+if (!communityColumns.some((column) => column.name === "kind")) {
+  database.exec("ALTER TABLE communities ADD COLUMN kind TEXT NOT NULL DEFAULT 'community'");
+}
+if (!communityColumns.some((column) => column.name === "region")) {
+  database.exec("ALTER TABLE communities ADD COLUMN region TEXT NOT NULL DEFAULT ''");
+}
+if (!communityColumns.some((column) => column.name === "recruiting")) {
+  database.exec("ALTER TABLE communities ADD COLUMN recruiting INTEGER NOT NULL DEFAULT 1");
+}
 
 const profileColumns = database.pragma("table_info(player_profiles)") as { name: string }[];
 if (!profileColumns.some((column) => column.name === "tags")) {

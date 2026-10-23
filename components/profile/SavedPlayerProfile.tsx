@@ -16,12 +16,12 @@ export default function SavedPlayerProfile({ player }: { player: Player }) {
   return (
     <main className="min-h-screen bg-zinc-950">
       <Navbar />
-      <div className="mx-auto max-w-7xl space-y-8 px-6 py-12">
+      <div className="mx-auto max-w-7xl space-y-6 px-4 py-8 sm:space-y-8 sm:px-6 sm:py-12">
         <Link href="/players" className="inline-flex items-center gap-2 text-sm font-medium text-zinc-400 transition hover:text-white">
           <ArrowLeft size={16} /> Back to players
         </Link>
         <ProfileHeader player={player} />
-        <div className="grid gap-8 lg:grid-cols-2">
+        <div className="grid gap-5 sm:gap-8 lg:grid-cols-2">
           <ProfileAbout player={player} />
           <ProfileTags player={player} />
           <ProfileGames player={player} />

@@ -13,7 +13,7 @@ export default function ProfileGames({
 }: ProfileGamesProps) {
   const { t } = useLanguage();
   return (
-    <section className="rounded-3xl border border-zinc-800 bg-zinc-900 p-8">
+    <section className="rounded-3xl border border-zinc-800 bg-zinc-900 p-5 sm:p-8">
 
       <div className="mb-6 flex items-center gap-3">
 
@@ -24,7 +24,7 @@ export default function ProfileGames({
           />
         </div>
 
-        <h2 className="text-2xl font-bold text-white">
+        <h2 className="text-xl font-bold text-white sm:text-2xl">
           {t("Favorite Games")}
         </h2>
 

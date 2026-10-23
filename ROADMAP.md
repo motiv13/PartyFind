@@ -36,9 +36,9 @@
 # 🚧 Phase 5
 
 - [x] Notifications
-- [ ] Communities
-- [ ] Guilds
-- [ ] Mobile Optimization
+- [x] Communities
+- [x] Guilds
+- [x] Mobile Optimization
 
 ---
 

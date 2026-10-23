@@ -26,11 +26,11 @@ export default function ProfileHeader({
       <div className="h-40 bg-gradient-to-r from-blue-700 via-indigo-700 to-purple-700" />
 
       {/* Content */}
-      <div className="relative px-7 pb-7">
+      <div className="relative px-4 pb-5 sm:px-7 sm:pb-7">
 
         <div className="absolute -top-16">
 
-          <div className="relative h-32 w-32 overflow-hidden rounded-full border-4 border-zinc-900 bg-gradient-to-br from-zinc-700 via-zinc-800 to-zinc-950 shadow-2xl ring-1 ring-white/10">
+          <div className="relative h-28 w-28 overflow-hidden rounded-full border-4 border-zinc-900 bg-gradient-to-br from-zinc-700 via-zinc-800 to-zinc-950 shadow-2xl ring-1 ring-white/10 sm:h-32 sm:w-32">
 
             <Image
               src={player.avatar}
@@ -44,11 +44,11 @@ export default function ProfileHeader({
 
         </div>
 
-        <div className="ml-40 pt-5">
+        <div className="ml-0 pt-[4.5rem] sm:ml-40 sm:pt-5">
 
           <div className="flex items-center gap-3">
 
-            <h1 className="text-3xl font-bold text-white">
+            <h1 className="min-w-0 break-words text-2xl font-bold text-white sm:text-3xl">
               {player.name}
             </h1>
 
@@ -64,7 +64,7 @@ export default function ProfileHeader({
 
           </div>
 
-          <p className="mt-2 text-lg text-zinc-400">
+          <p className="mt-2 break-words text-base text-zinc-400 sm:text-lg">
             {[player.role, player.game].filter(Boolean).join(" • ")}
           </p>
 

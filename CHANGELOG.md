@@ -18,6 +18,9 @@
 
 ## Unreleased
 
+- Improved mobile layouts with compact account controls, a collapsible navigation menu, smaller player filters, and responsive profile cards.
+- Added guilds to the group directory with game, optional server or region, and recruiting status.
+- Added game-based communities with search, create, join, and leave actions.
 - Added account-backed notifications for messages, friend requests, and party invitations, with unread counts and links from the navigation bar.
 - Added email and password registration, sign-in, and sign-out with Better Auth.
 - Added local SQLite storage for user accounts, sessions, and player profiles.

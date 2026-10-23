@@ -47,12 +47,12 @@ export default function Filters({
   const { t } = useLanguage();
   return (
     <div className="space-y-4">
-      <div className="flex flex-wrap gap-2">
+      <div className="-mx-4 flex gap-2 overflow-x-auto px-4 pb-1 sm:mx-0 sm:flex-wrap sm:overflow-visible sm:px-0 sm:pb-0 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
         {games.map((game) => (
           <button
             key={game}
             onClick={() => setSelectedGame(game)}
-            className={`rounded-lg border px-4 py-2.5 text-sm transition-all duration-200 ${
+            className={`shrink-0 rounded-lg border px-3 py-2.5 text-xs transition-all duration-200 sm:px-4 sm:text-sm ${
               selectedGame === game
                 ? "border-blue-500 bg-blue-600 text-white"
                 : "border-zinc-800 bg-zinc-900 text-zinc-400 hover:border-blue-500 hover:text-white"

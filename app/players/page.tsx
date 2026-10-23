@@ -53,13 +53,13 @@ export default function PlayersPage() {
   return (
     <main className="min-h-screen bg-zinc-950 text-white">
       <Navbar />
-      <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-14">
+      <section className="mx-auto max-w-7xl px-4 py-8 sm:px-6 sm:py-14">
         <div className="mb-8 text-center">
-          <h1 className="text-4xl font-bold sm:text-5xl">
+          <h1 className="text-3xl font-bold sm:text-5xl">
             {t("Find Players")}
           </h1>
 
-          <p className="mt-4 text-lg text-zinc-400">
+          <p className="mt-3 text-base text-zinc-400 sm:mt-4 sm:text-lg">
             {t("Discover teammates for your favorite games.")}
           </p>
         </div>

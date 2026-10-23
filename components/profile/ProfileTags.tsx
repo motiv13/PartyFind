@@ -9,7 +9,7 @@ export default function ProfileTags({ player }: { player: Player }) {
   if (!player.tags?.length) return null;
 
   return (
-    <section className="rounded-3xl border border-zinc-800 bg-zinc-900 p-8">
+    <section className="rounded-3xl border border-zinc-800 bg-zinc-900 p-5 sm:p-8">
       <div className="mb-6 flex items-center gap-3">
         <div className="rounded-xl bg-purple-600/20 p-3"><Tag className="text-purple-300" size={22} /></div>
         <div>

@@ -179,7 +179,7 @@ export default function ProfilePage() {
           </div>
         )}
 
-        {authState === "signed-in" && <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_300px]">
+        {authState === "signed-in" && <div className="grid gap-5 sm:gap-8 lg:grid-cols-[minmax(0,1fr)_300px]">
           <form onSubmit={handleSubmit} className="space-y-5">
             <section className="rounded-2xl border border-zinc-800 bg-zinc-900/60 p-5 sm:p-6">
               <div className="mb-5 flex items-center gap-3">
@@ -213,7 +213,7 @@ export default function ProfilePage() {
               </div>
             </section>
 
-            <section className="rounded-2xl border border-zinc-800 bg-zinc-900/60 p-6 sm:p-8">
+            <section className="rounded-2xl border border-zinc-800 bg-zinc-900/60 p-5 sm:p-8">
               <div className="mb-5"><h2 className="font-semibold">{t("Finding your team")}</h2><p className="mt-1 text-sm text-zinc-500">{t("Choose languages and activities from the lists so others can find you with the same filters.")}</p></div>
               <div className="grid gap-4">
                 <MultiOptionPicker id="profile-languages" label={t("Languages")} selected={profile.languages} options={languageOptions} placeholder={t("Choose a language")} onAdd={(language) => update("languages", [...profile.languages, language])} onRemove={(language) => update("languages", profile.languages.filter((item) => item !== language))} />
